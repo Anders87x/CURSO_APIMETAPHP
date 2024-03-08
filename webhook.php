@@ -206,14 +206,14 @@
         $options = [
             'http' => [
                 'method' => 'POST',
-                'header' => "Content-type: application/json\r\nAuthorization: Bearer EAAHd9K9P3aUBANONXPgRuamKOvoZAV2QHYjOry9ngiWBcfZBPyZCzES5hHwPCemZCvU91xruiXxZCVojFw1ZCCYJiYj7p4pWShu5b6tghaihmCYrd6hHZAqYoCS7OhV1KXZB7pZBOwBKSgyTychwisMjbQhK34YHsXJlXioZBDcWddPMEWNj3x3OBwRQ3nnkU4kzsiks3ovrRAlEEv5bijLucq\r\n",
+                'header' => "Content-type: application/json\r\nAuthorization: Bearer EAAVjZAqhaRfYBO0ThxZAB4q4yTcDWQvEibikMjCbDXe4hJDhfrBcfrWtzzhkaZAIT6BMGOsZBoXYGWylTQAXVZCucBrg8kLJ5vVlyZBCWvZCK0pXo7C2X0BQ5MrXjF7j9bxXPSPCMv0ciQU4TMuScTEDcdN5ZAaLkqnvPX6U30yUHPbPe9R3MgMPdvAvQ7MDS8yprmhY7bdtfM8vCBlGr39xzuwdSNAK3avaqh8ZD\r\n",
                 'content' => $data,
                 'ignore_errors' => true
             ]
         ];
 
         $context = stream_context_create($options);
-        $response = file_get_contents('https://graph.facebook.com/v15.0/113319844996763/messages', false, $context);
+        $response = file_get_contents('https://graph.facebook.com/v18.0/117721278011867/messages', false, $context);
 
         if ($response === false) {
             echo "Error al enviar el mensaje\n";
