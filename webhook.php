@@ -36,9 +36,11 @@
             fwrite($archivo,$texto);
             fclose($archivo);
 
-            $res ->status(200)->send("EVENT_RECEIVED");
+            /* $res ->status(200)->send("EVENT_RECEIVED"); */
+            $res->status(200)->send(json_encode(['message' => 'EVENT_RECEIVED']));
         }catch(Exception $e){
-            $res ->status(200)->send("EVENT_RECEIVED");
+            $res->status(200)->send(json_encode(['message' => 'EVENT_RECEIVED']));
+            /* $res ->status(200)->send("EVENT_RECEIVED"); */
         }
     }
 
