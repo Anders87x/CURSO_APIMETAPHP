@@ -192,6 +192,45 @@
                     "body" => $responseArr['choices'][0]['text']
                 )
             ]);
+        }else if (strpos($comentario,'boton') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",
+                "recipient_type" => "individual",
+                "to" => $numero,
+                "type" => "interactive",
+                "interactive" => [
+                    "type" => "button",
+                    "body" => [
+                        "text" => "¿Confirmas tu registro?"
+                    ],
+                    "footer" => [
+                        "text" => "Selecciona una de las opciones"
+                    ],
+                    "action" => [
+                        "buttons" => [
+                            [
+                                "type" => "reply",
+                                "reply" => [
+                                    "id" => "btnsi",
+                                    "title" => "Si"
+                                ]
+                            ],[
+                                "type" => "reply",
+                                "reply" => [
+                                    "id" => "btnno",
+                                    "title" => "No"
+                                ]
+                            ],[
+                                "type" => "reply",
+                                "reply" => [
+                                    "id" => "btntalvez",
+                                    "title" => "Tal Vez"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
