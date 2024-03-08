@@ -257,6 +257,39 @@
                     ]
                 ]
             ]);
+        }else if (strpos($comentario,'btnsi') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "Muchas gracias por Aceptar."
+                ]
+            ]);
+        }else if (strpos($comentario,'btnno') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "Es una lastima."
+                ]
+            ]);
+        }else if (strpos($comentario,'btntalvez') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "Estare a la espera."
+                ]
+            ]);
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
