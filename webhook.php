@@ -24,17 +24,43 @@
             $changes = $entry['changes'][0];
             $value = $changes['value'];
             $objetomensaje = $value['messages'];
-            $mensaje = $objetomensaje[0];
 
-            $comentario = $mensaje['text']['body'];
-            $numero = $mensaje['from'];
+            if ($objetomensaje){
+                $messages  = $objetomensaje[0];
 
-            EnviarMensajeWhastapp($comentario,$numero);
+                if(array_key_exists("type",$messages)){
+                    $tipo = $messages["type"];
 
-            $archivo = fopen("log.txt","a");
-            $texto = json_encode($numero);
-            fwrite($archivo,$texto);
-            fclose($archivo);
+                    if($tipo == "interactive"){
+                        $tipo_interactivo = $messages["interactive"]["type"];
+
+                        if($tipo_interactivo == "button_reply"){
+
+                            $comentario = $messages["interactive"]["button_reply"]["id"];
+                            $numero = $messages['from'];
+
+                            EnviarMensajeWhastapp($comentario,$numero);
+
+                        }else if($tipo_interactivo == "list_reply"){
+
+                            $comentario = $messages["interactive"]["list_reply"]["id"];
+                            $numero = $messages['from'];
+
+                            EnviarMensajeWhastapp($comentario,$numero);
+
+                        }
+
+                    }
+
+                    if (array_key_exists("text",$messages)){
+                        $comentario = $messages['text']['body'];
+                        $numero = $messages['from'];
+
+                        EnviarMensajeWhastapp($comentario,$numero);
+                    }
+
+                }
+            }
 
             echo json_encode(['message' => 'EVENT_RECEIVED']);
             exit;
