@@ -2,6 +2,9 @@
     const TOKEN_ANDERCODE = "ANDERCODEPHPAPIMETA";
     const WEBHOOK_URL = "https://whatsappapi.andercode.net/webhook.php";
 
+    require_once("config/conexion.php");
+    require_once("models/Registro.php");
+
     function verificarToken($req,$res){
         try{
             $token = $req['hub_verify_token'];
@@ -57,6 +60,9 @@
                         $numero = $messages['from'];
 
                         EnviarMensajeWhastapp($comentario,$numero);
+
+                        $registro = new Registro();
+                        $registro->insert_registro($numero,$comentario);
                     }
 
                 }
