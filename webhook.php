@@ -293,7 +293,6 @@
         }else if (strpos($comentario,'lista') !== false){
             $data = json_encode([
                 "messaging_product" => "whatsapp",
-                "recipient_type" => "individual",
                 "to" => $numero,
                 "type" => "interactive",
                 "interactive" => [
