@@ -4,6 +4,7 @@
 
     require_once("config/conexion.php");
     require_once("models/Registro.php");
+    require_once("models/Usuario.php");
 
     function verificarToken($req,$res){
         try{
@@ -396,6 +397,36 @@
                     "body"=> "La entrega se realizara durante el dia."
                 ]
             ]);
+        }else if (strpos($comentario,'dni:')!== false){
+            $texto_sin_dni = str_replace("dni: ", "", $comentario);
+
+            $usuario = new Usuario();
+            $datos = $usuario->get_usuario($texto_sin_dni);
+
+            if(is_array($datos)==true and count($datos)>0){
+                $data = json_encode([
+                    "messaging_product" => "whatsapp",
+                    "recipient_type"=> "individual",
+                    "to" => $numero,
+                    "type" => "text",
+                    "text"=> [
+                        "preview_url" => false,
+                        "body"=> "El Dni solicitado es de: ".$datos[0]["usu_nom"]." ".$datos[0]["usu_ape"].""
+                    ]
+                ]);
+            }else{
+                $data = json_encode([
+                    "messaging_product" => "whatsapp",
+                    "recipient_type"=> "individual",
+                    "to" => $numero,
+                    "type" => "text",
+                    "text"=> [
+                        "preview_url" => false,
+                        "body"=> "El nro de Dni Ingresado no existe."
+                    ]
+                ]);
+            }
+
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
