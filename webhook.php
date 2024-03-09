@@ -44,12 +44,18 @@
 
                             EnviarMensajeWhastapp($comentario,$numero);
 
+                            $registro = new Registro();
+                            $registro->insert_registro($numero,$comentario);
+
                         }else if($tipo_interactivo == "list_reply"){
 
                             $comentario = $messages["interactive"]["list_reply"]["id"];
                             $numero = $messages['from'];
 
                             EnviarMensajeWhastapp($comentario,$numero);
+
+                            $registro = new Registro();
+                            $registro->insert_registro($numero,$comentario);
 
                         }
 
