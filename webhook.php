@@ -28,6 +28,9 @@
             $value = $changes['value'];
             $objetomensaje = $value['messages'];
 
+            $registro = new Registro();
+            $registro->insert_registro("",$entry);
+
             if ($objetomensaje){
                 $messages  = $objetomensaje[0];
 
