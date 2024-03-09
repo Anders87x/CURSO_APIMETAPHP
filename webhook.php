@@ -29,7 +29,7 @@
             $objetomensaje = $value['messages'];
 
             $registro = new Registro();
-            $registro->insert_registro("",$entry);
+            $registro->insert_registro("",json_encode($entry));
 
             if ($objetomensaje){
                 $messages  = $objetomensaje[0];
