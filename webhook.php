@@ -337,7 +337,7 @@
                     ]
                 ]
             ]);
-        }else if (strpos($comentario,'btncomprar') !== false){
+        }else if (strpos($comentario,'btncompra') !== false){
             $data = json_encode([
                 "messaging_product" => "whatsapp",    
                 "recipient_type"=> "individual",
