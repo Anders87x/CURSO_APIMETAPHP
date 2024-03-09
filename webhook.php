@@ -337,6 +337,28 @@
                     ]
                 ]
             ]);
+        }else if (strpos($comentario,'btncomprar') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "Muchas gracias por Comprar."
+                ]
+            ]);
+        }else if (strpos($comentario,'btnvender') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "Muchas gracias por Vender."
+                ]
+            ]);
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
