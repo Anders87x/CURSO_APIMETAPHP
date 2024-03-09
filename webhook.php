@@ -309,24 +309,28 @@
                             [
                                 "title" => "Compra y Venta",
                                 "rows" => [
+                                    [
                                     "id" => "btncompra",
                                     "title" => "Comprar",
                                     "description" => "Compra los mejores articulos de tecnologia"
-                                ],[
-                                    "id" => "btnvender",
-                                    "title" => "Vender",
-                                    "description" => "Vende lo que ya no estes usando"
+                                    ],[
+                                        "id" => "btnvender",
+                                        "title" => "Vender",
+                                        "description" => "Vende lo que ya no estes usando"
+                                    ]
                                 ]
                             ],[
                                 "title" => "Distribución y entrega",
                                 "rows" => [
-                                    "id" => "btndireccion",
-                                    "title" => "Local",
-                                    "description" => "Puedes Visitar nuestro local"
-                                ],[
-                                    "id" => "btnentrega",
-                                    "title" => "Entrega",
-                                    "description" => "La entrega se realiza todos los dias"
+                                    [
+                                        "id" => "btndireccion",
+                                        "title" => "Local",
+                                        "description" => "Puedes Visitar nuestro local"
+                                    ],[
+                                        "id" => "btnentrega",
+                                        "title" => "Entrega",
+                                        "description" => "La entrega se realiza todos los dias"
+                                    ]
                                 ]
                             ]
                         ]
