@@ -290,6 +290,50 @@
                     "body"=> "Estare a la espera."
                 ]
             ]);
+        }else if (strpos($comentario,'lista') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",
+                "recipient_type" => "individual",
+                "to" => $numero,
+                "type" => "interactive",
+                "interactive" => [
+                    "type" => "list",
+                    "body" => [
+                        "text" => "Seleccionar alguna opcion"
+                    ],
+                    "footer" => [
+                        "text" => "Seleciona una de las opciones para poder ayudarte"
+                    ],
+                    "action" => [
+                        "button" => "Ver Opciones",
+                        "sections" => [
+                            [
+                                "title" => "Compra y Venta",
+                                "rows" => [
+                                    "id" => "btncompra",
+                                    "title" => "Comprar",
+                                    "description" => "Compra los mejores articulos de tecnologia"
+                                ],[
+                                    "id" => "btnvender",
+                                    "title" => "Vender",
+                                    "description" => "Vende lo que ya no estes usando"
+                                ]
+                            ],[
+                                "title" => "Distribución y entrega",
+                                "rows" => [
+                                    "id" => "btndireccion",
+                                    "title" => "Local",
+                                    "description" => "Puedes Visitar nuestro local"
+                                ],[
+                                    "id" => "btnentrega",
+                                    "title" => "Entrega",
+                                    "description" => "La entrega se realiza todos los dias"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
