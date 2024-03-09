@@ -359,6 +359,28 @@
                     "body"=> "Muchas gracias por Vender."
                 ]
             ]);
+        }else if (strpos($comentario,'btndireccion') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "La direccion esta en su factura."
+                ]
+            ]);
+        }else if (strpos($comentario,'btnentrega') !== false){
+            $data = json_encode([
+                "messaging_product" => "whatsapp",    
+                "recipient_type"=> "individual",
+                "to" => $numero,
+                "type" => "text",
+                "text"=> [
+                    "preview_url" => false,
+                    "body"=> "La entrega se realizara durante el dia."
+                ]
+            ]);
         }else{
             $data = json_encode([
                 "messaging_product" => "whatsapp",
